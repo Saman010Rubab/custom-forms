@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<a href="{% url 'formapp:product_list' %}">Back to list</a>
+
+<h1>{{ view.object.pk|default:"New" }}Product</h1>
+<form method="post"  enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+{% endblock %}

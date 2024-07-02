@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<h1>Product List</h1>
+<ul>
+    {% for product in products %}
+    <li>
+        <a href="{% url 'formapp:product_detail' product.pk %}">{{ product.name }}</a>
+        (<a href="{% url 'formapp:product_update' product.pk %}">edit</a>)
+        (<a href="{% url 'formapp:product_delete' product.pk %}">delete</a>)
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'formapp:product_create' %}">Add new product</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<h1>Product Name: {{ product.name }}</h1>
+<p> Quantity:  {{ product.quantity }}</p>
+<p>Description: {{ product.description }}</p>
+{% if product.image %}
+    <img src="media/{{ product.image }}" alt="{{ product.name }}" style="max-width: 100%;">
+{% endif %}
+<p><a href="{% url 'formapp:product_update' product.pk %}">Edit</a></p>
+<p><a href="{% url 'formapp:product_delete' product.pk %}">Delete</a></p>
+<a href="{% url 'formapp:product_list' %}">Back to list</a>
+{% endblock %}
