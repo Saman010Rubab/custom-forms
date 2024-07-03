@@ -28,6 +28,9 @@ class ProductForm(forms.ModelForm):
 
     def clean_image(self):
         image= self.cleaned_data.get('image')
-        if image.size < 2 * 1024 * 1024:
-            raise forms.ValidationError("Image file size must be greater than 2MB.")
-        return image
+        if not self.instance.pk :
+            if image.size > 2 * 1024 * 1024:
+                raise forms.ValidationError("Image file size must be greater than 2MB.")
+            return image
+        else:
+            return image
