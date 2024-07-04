@@ -4,11 +4,14 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Product
 from .forms import ProductForm
+from django.core.paginator import Paginator
+
 
 class ProductListView(ListView):
     model = Product
     template_name = 'formapp/product_list.html'
     context_object_name = 'products'
+    paginate_by = 4
 
 class ProductDetailView(DetailView):
     model = Product

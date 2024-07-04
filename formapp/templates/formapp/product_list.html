@@ -10,5 +10,24 @@
     </li>
     {% endfor %}
 </ul>
+<span class="current">
+    Page {{page_obj.number}} of {{ page_obj.paginator.num_pages }}.
+</span>
+<div class="pagination">
+    
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1" class="text-info">&laquo; first</a>
+            <a href="?page={{page_obj.previous_page_number}}"class="text-info">previous</a>
+        {% endif %}
+
+        
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}"class="text-info">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}"class="text-info">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 <a href="{% url 'formapp:product_create' %}">Add new product</a>
 {% endblock %}

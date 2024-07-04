@@ -6,6 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}My Project{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination .step-links {
+            display: flex;
+            gap: 5px;
+        }
+
+        .pagination .step-links a,
+        .pagination .step-links .current {
+            padding: 5px 10px;
+            border: 1px solid black;
+            text-decoration: none;
+            color: dark;
+        }
+
+        {% comment %} .pagination .step-links .current {
+            background-color: red;
+        } {% endcomment %}
+
+        .pagination .step-links a:hover {
+            background-color: dark ;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
